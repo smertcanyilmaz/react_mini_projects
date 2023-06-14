@@ -9,12 +9,23 @@ uuidv4();
 
 const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
+  const [message, setMessage] = useState("");
 
   const addTodo = (todo) => {
-    setTodos([
-      ...todos,
-      { id: uuidv4(), task: todo, completed: false, isEditing: false },
-    ]);
+    if (todo !== "") {
+      setTodos([
+        ...todos,
+        {
+          id: uuidv4(),
+          task: todo,
+          completed: false,
+          isEditing: false,
+        },
+      ]);
+      setMessage("");
+    } else {
+      setMessage("Please add a task");
+    }
   };
 
   const toggleComplete = (id) => {
@@ -62,6 +73,7 @@ const TodoWrapper = () => {
           />
         )
       )}
+      <p className="alert_mes">{message}</p>
     </div>
   );
 };

@@ -19,7 +19,7 @@ const TodoForm = ({ addTodo }) => {
       <input
         type="text"
         className="todo-input"
-        placeholder="what is the task today"
+        placeholder="what is the task today?"
         value={value}
         onChange={changeHandler}
       />

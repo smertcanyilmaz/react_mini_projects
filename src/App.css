@@ -79,3 +79,9 @@ h1 {
   color: #c5aeff;
   text-decoration: line-through;
 }
+
+.alert_mes {
+  color: red;
+  width: 100%;
+  text-align: left;
+}
