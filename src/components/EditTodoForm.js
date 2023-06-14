@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const EditTodoForm = () => {
+const EditTodoForm = ({ editTodo, task }) => {
+  const [value, setValue] = useState(task.task);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    editTodo(value, task.id);
+  };
+
   return (
-    <form className="TodoForm ">
+    <form className="TodoForm" onSubmit={handleSubmit}>
       <input
         type="text"
         className="todo-input"
-        placeholder="what is the task today"
+        placeholder="update task"
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
       />
       <button type="submit" className="todo-btn">
         Add Task
